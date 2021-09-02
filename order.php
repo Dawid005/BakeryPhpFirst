@@ -16,31 +16,46 @@
 
     </style>
 
-
 </head>
 
 <body>
     
     <div id="container">
+       
         <div id = "order">
 
-        <h2> Cost of Your order is: </h2>
+             <h2> Cost of Your order is: </h2>
 
-        <br>
+            <br>
 
-        <h1>
-            <?php
+               <h1>
+                    <?php
 
-                require 'classBakery.php';
+                        function auto_loader($class){
+                            $file = "{$class}.php";
+                            
+                            if(is_file($file)){
+                                    include $file;
+                            }
 
-                $object = new Bakery($_POST['cake'],$_POST['bread']);
+                        }
+                        
+                        spl_autoload_register("auto_loader");
 
-            ?>
-        </h1>
+                        auto_loader('classBakery');
+
+                        $object = new Bakery($_POST['cake'],$_POST['bread']);
+
+                    ?>
+        
+                </h1>
+
         </div>
 
         <div id ="home">
+
             <a href="http://localhost/php/php1/">Home Page</a>
+        
         </div>
     </div>
 
