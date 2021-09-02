@@ -45,7 +45,10 @@
                         auto_loader('classBakery');
 
                         $object = new Bakery($_POST['cake'],$_POST['bread']);
-
+                        
+                        echo "<br>";
+                        echo "You made your order at: ";
+                        echo date('d.m.y G:i:s');
                     ?>
         
                 </h1>
